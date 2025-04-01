@@ -3,9 +3,10 @@ import { ProductRepository } from '../product.repository';
 import { ProductInterface } from '../product.interface';
 
 @Injectable()
-export class GetProductByIdService {
+export class UpdateProductService {
   constructor(private productRepository: ProductRepository) {}
-  execute(id: number): ProductInterface {
-    return this.productRepository.getById(id);
+
+  execute(id: number, product: ProductInterface): void {
+    this.productRepository.update(id, product);
   }
 }

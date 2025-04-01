@@ -1,11 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { ProductRepository } from '../product.repository';
-import { ProductInterface } from '../product.interface';
 
 @Injectable()
-export class GetProductByIdService {
+export class DeleteProductService {
   constructor(private productRepository: ProductRepository) {}
-  execute(id: number): ProductInterface {
-    return this.productRepository.getById(id);
+  execute(id: number): boolean {
+    return this.productRepository.delete(id);
   }
 }
