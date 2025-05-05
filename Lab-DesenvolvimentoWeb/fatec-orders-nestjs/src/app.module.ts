@@ -3,10 +3,10 @@ import { ProductsModule } from './products/products.module';
 import { DatabaseModule } from './database/database.module';
 
 @Module({
-  imports: [ProductsModule, DatabaseModule], //importa outros modulos
-  controllers: [], // inclui controladores
-  providers: [], // inclui serviços e repositórios
-  exports: [], // exporta recursos para outros módulos
+  imports: [ProductsModule, DatabaseModule], 
+  controllers: [], 
+  providers: [], 
+  exports: [], 
 })
 
 export class AppModule {}

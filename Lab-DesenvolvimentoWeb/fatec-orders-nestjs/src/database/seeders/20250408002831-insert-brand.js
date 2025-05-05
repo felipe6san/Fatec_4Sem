@@ -2,7 +2,7 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface) {    
+  async up(queryInterface) {
     await queryInterface.bulkInsert(
       'brand',
       [
@@ -16,11 +16,11 @@ module.exports = {
           name: 'Lacta',
         },
       ],
-    {}
-  );    
-},
+      {}
+    );
+  },
 
-  async down (queryInterface) {    
-    await queryInterface.bulkDelete('brand', null, {});     
+  async down(queryInterface) {
+    await queryInterface.bulkDelete('brand', null, {});
   }
 };

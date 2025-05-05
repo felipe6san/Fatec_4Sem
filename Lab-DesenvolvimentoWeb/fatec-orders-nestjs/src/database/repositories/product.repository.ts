@@ -1,9 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { ProductInterface } from '../../products/product.interface';
+import { ProductEntity } from '../entities/product.entity';
 
 @Injectable()
 export class ProductRepository {
   private products: ProductInterface[] = [];
+  constructor(
+    @Inject('PRODUCT_ENTITY')
+    private productEntity: typeof ProductEntity,
+  ){}
+
   create(product: ProductInterface): void {
     this.products.push(product);
   }
@@ -18,8 +24,9 @@ export class ProductRepository {
     if (!product) throw Error('Produto não encontrado!');
     return product;
   }
-  list(): ProductInterface[] {
-    return this.products;
+  async list(): Promise<ProductEntity[]> {
+    const products = this.productEntity.findAll();
+    return products;
   }
   delete(id: number): boolean {
     const productIndex = this.products.findIndex(
